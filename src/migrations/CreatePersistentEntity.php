@@ -9,7 +9,7 @@ namespace tecnocen\rmdb\migrations;
  * A persistent entity remains in the database even after being 'deleted' by
  * using `softDelete` technique.
  */
-abstract class CreatePersistentEntity extends CreatePivot
+abstract class CreatePersistentEntity extends CreateEntity
 {
     /**
      * @var ?string the name of the column to store the user which deleted the
