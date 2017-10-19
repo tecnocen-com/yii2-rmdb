@@ -16,7 +16,7 @@
     "require": {
         "php": ">=5.5",
         "yiisoft/yii2": "~2.0.10",
-        "tecnocen/migrate": "*"
+        "tecnocen/yii2-migrate": "*"
     },
     "require-dev": {
         "codeception/base": "^2.2.3",
