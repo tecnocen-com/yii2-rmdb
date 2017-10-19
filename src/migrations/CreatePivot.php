@@ -2,7 +2,7 @@
 
 namespace tecnocen\rmdb\migrations;
 
-use tecnocen\migration\CreateTableMigration as CreateTable;
+use tecnocen\migrate\CreateTableMigration as CreateTable;
 
 /**
  * Migration to create pivot tables which contain columns to store the user
