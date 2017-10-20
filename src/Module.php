@@ -36,14 +36,14 @@ class Module extends \yii\base\Module
     public $timestampValue;
 
     /**
-     * @var mixed id of the active user.
-     */
-    public $userId;
-
-    /**
      * @var mixed value to be used when the user id can't be determined.
      */
-    public $defaultUserId;
+    public $defaultUserId = 1;
+
+    /**
+     * @var mixed id of the active user.
+     */
+    private $userId;
 
     /**
      * @inheritdoc

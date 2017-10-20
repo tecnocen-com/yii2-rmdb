@@ -53,13 +53,13 @@ abstract class Pivot extends \yii\db\ActiveRecord
                 'class' => $module->blameableClass,
                 'createdByAttribute' => $this->createdByAttribute,
                 'updatedByAttribute' => null,
-                'value' => $module->getUserId(),
+                'value' => $module->userId,
             ],
             'timestamp' => [
                 'class' => $module->timestampClass,
-                'createdAtAttribute' => $this->createdByAttribute,
+                'createdAtAttribute' => $this->createdAtAttribute,
                 'updatedAtAttribute' => null,
-                'value' => $module->getTimestampValue(),
+                'value' => $module->timestampValue,
             ]
         ];
     }

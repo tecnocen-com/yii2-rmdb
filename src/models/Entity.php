@@ -24,9 +24,9 @@ abstract class Entity extends Pivot
     public function behaviors()
     {
         $behaviors = parent::behaviors();
-        $behaviors['blameable']['updateByAttribute']
+        $behaviors['blameable']['updatedByAttribute']
             = $this->updatedByAttribute;
-        $behaviors['timestamp']['updateAtAttribute']
+        $behaviors['timestamp']['updatedAtAttribute']
             = $this->updatedAtAttribute;
 
         return $behaviors;
