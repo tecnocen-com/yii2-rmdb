@@ -53,15 +53,29 @@ abstract class Pivot extends \yii\db\ActiveRecord
                 'class' => $module->blameableClass,
                 'createdByAttribute' => $this->createdByAttribute,
                 'updatedByAttribute' => null,
-                'value' => $module->getUserId(),
+                'value' => $module->userId,
             ],
             'timestamp' => [
                 'class' => $module->timestampClass,
                 'createdAtAttribute' => $this->createdByAttribute,
                 'updatedAtAttribute' => null,
-                'value' => $module->getTimestampValue(),
-            ]
+                'value' => $module->timestampValue,
+            ],
+            'typecast' => [
+                'class' => $module->typecastClass,
+                'attributeTypes' => $this->attributeTypecast(),
+                'typecastAfterFind' => true,
+            ],
         ];
+    }
+
+    /**
+     * @return ?array pairs of 'attribute' => 'typecast'. Return null if you
+     * want the typecast to be determined by `rules()` method.
+     */
+    protected function attributeTypecast()
+    {
+        return [$this->createdByAttribute => 'integer'];
     }
 
     /**

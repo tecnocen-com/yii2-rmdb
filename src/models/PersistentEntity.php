@@ -21,6 +21,16 @@ abstract class PersistentEntity extends Entity
     /**
      * @inheritdoc
      */
+    protected function attributeTypecast()
+    {
+        return parent::attributeTypecast() + [
+            $this->deletedByAttribute => 'integer',
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
     public function behaviors()
     {
         $module = $this->getRmdbModule();

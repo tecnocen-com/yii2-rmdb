@@ -6,6 +6,7 @@ use yii2tech\ar\softdelete\SoftDeleteBehavior;
 use Yii;
 use yii\behaviors\BlameableBehavior;
 use yii\behaviors\TimestampBehavior;
+use yii\behaviors\TypecastBehavior;
 use yii\db\Expression as DbExpression;
 use yii\i18n\PhpMessageSource;
 use yii\web\Application as WebApplication;
@@ -24,6 +25,11 @@ class Module extends \yii\base\Module
      * @var string
      */
     public $timestampClass = TimestampBehavior::class;
+
+    /**
+     * @var string
+     */
+    public $typecastClass = AttributeTypecastBehavior::class;
 
     /**
      * @var string

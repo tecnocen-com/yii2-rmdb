@@ -21,6 +21,17 @@ abstract class Entity extends Pivot
     /**
      * @inheritdoc
      */
+    protected function attributeTypecast()
+    {
+        return parent::attributeTypecast() + [
+            $this->updatedByAttribute => 'integer',
+        ];
+    }
+
+
+    /**
+     * @inheritdoc
+     */
     public function behaviors()
     {
         $behaviors = parent::behaviors();
