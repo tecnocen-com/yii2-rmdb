@@ -57,7 +57,7 @@ abstract class Pivot extends \yii\db\ActiveRecord
             ],
             'timestamp' => [
                 'class' => $module->timestampClass,
-                'createdAtAttribute' => $this->createdByAttribute,
+                'createdAtAttribute' => $this->createdAtAttribute,
                 'updatedAtAttribute' => null,
                 'value' => $module->timestampValue,
             ],

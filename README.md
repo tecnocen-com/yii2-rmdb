@@ -123,6 +123,32 @@ class m170101_000001_sale extends \tecnocen\rmdb\migrations\CreateEntity
 }
 ```
 
+### RMDB Module
+
+This library uses a custom module to help configure all the extended models
+in an unified way.
+
+configure it in your `common\config\main.php` in `yii-app-advanced` and
+`common\config.php` in `yii-app-basic`.
+
+```php
+use tecnoceno\rmdb\Module as RmdbModule;
+
+return [
+    // ...
+    'modules' => [
+        'rmdb' => [
+            'class' => RmdbModule::class,
+            'timestampClass' => ..., // optional
+            'blameableClass' => ..., // optional
+            'softDeleteClass' => ..., // optional
+            'timestampValue' => time(), // optional by default uses `now()`
+            'defaultUserId' => 5, // optional
+        ],
+    ],
+];
+```
+
 ### Models
 
 Like the migrations there are 3 classes for models.
