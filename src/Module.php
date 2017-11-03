@@ -13,6 +13,8 @@ use yii\web\Application as WebApplication;
 
 /**
  * Module which contains the configurations and utils for RMDB models.
+ *
+ * @property-read mixed $userId
  */
 class Module extends \yii\base\Module
 {
@@ -67,6 +69,14 @@ class Module extends \yii\base\Module
             : $this->defaultUserId;
 
         $this->registerTranslations();
+    }
+
+    /**
+     * @return mixed the user id to be stored
+     */
+    public function getUserId()
+    {
+        return $this->userId;
     }
 
     /**
