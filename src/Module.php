@@ -4,9 +4,9 @@ namespace tecnocen\rmdb;
 
 use yii2tech\ar\softdelete\SoftDeleteBehavior;
 use Yii;
+use yii\behaviors\AttributeTypecastBehavior;
 use yii\behaviors\BlameableBehavior;
 use yii\behaviors\TimestampBehavior;
-use yii\behaviors\TypecastBehavior;
 use yii\db\Expression as DbExpression;
 use yii\i18n\PhpMessageSource;
 use yii\web\Application as WebApplication;
