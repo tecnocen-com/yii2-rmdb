@@ -83,6 +83,7 @@ abstract class Pivot extends \yii\db\ActiveRecord
      */
     public function attributeLabels()
     {
+        RmdbModule::registerTranslations();
         return [
             $this->createdByAttribute => RmdbModule::t('model', 'Created By'),
             $this->createdAtAttribute => RmdbModule::t('model', 'Created At'),

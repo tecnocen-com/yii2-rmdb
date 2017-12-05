@@ -82,14 +82,16 @@ class Module extends \yii\base\Module
     /**
      * Registers the translations used by the library.
      */
-    public function registerTranslations()
+    public static function registerTranslations()
     {
         $i18n = Yii::$app->i18n;
-        $i18n->translations['tecnocen/rmdb/*'] = [
-            'class' => PhpMessageSource::class,
-            'sourceLanguage' => 'en',
-            'basePath' => __DIR__ . '/messages',
-        ];
+        if (!isset($i18n->translations['tecnocen/rmdb/*'])) {
+            $i18n->translations['tecnocen/rmdb/*'] = [
+                'class' => PhpMessageSource::class,
+                'sourceLanguage' => 'en',
+                'basePath' => __DIR__ . '/messages',
+            ];
+        }
     }
 
     public static function t(
