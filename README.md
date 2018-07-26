@@ -132,7 +132,7 @@ configure it in your `common\config\main.php` in `yii-app-advanced` and
 `common\config.php` in `yii-app-basic`.
 
 ```php
-use tecnoceno\rmdb\Module as RmdbModule;
+use tecnocen\rmdb\Module as RmdbModule;
 
 return [
     // ...
