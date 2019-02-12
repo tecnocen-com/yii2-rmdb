@@ -178,7 +178,7 @@ will automatically load the needed behaviors and configure them to use the
 attributes as provided by this properties.
 
 ```php
-class ProductSale extends \tecnocen\rmdb\models\Pivot
+class Product extends \tecnocen\rmdb\models\Entity
 {
     protected $createdByAttribute = 'creation_user';
     protected $createdAtAttribute = 'creation_date';
@@ -197,12 +197,14 @@ will automatically load the needed behaviors and configure them to use the
 attributes as provided by this properties.
 
 ```php
-class ProductSale extends \tecnocen\rmdb\models\Pivot
+class Product extends \tecnocen\rmdb\models\PersistentEntity
 {
     protected $createdByAttribute = 'creation_user';
     protected $createdAtAttribute = 'creation_date';
     protected $updatedByAttribute = 'edition_user';
     protected $updatedAtAttribute = 'edition_date';
+    protected $deletedAtAttribute = 'deletion_user';
+    protected $deletedAtAttribute = 'deletion_date';
 
     // rest of model methods and logic
 }
