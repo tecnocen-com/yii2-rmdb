@@ -24,8 +24,18 @@ abstract class CreatePivot extends CreateTable
 
     /**
      * @var string name of the table used for the foreign key in user columns.
+     *
+     * @see defaultUserForeignKey()
      */
     public $userTable = 'user';
+
+    /**
+     * @var string name of the primary column of the user table for the foreign
+     * key in user columns.
+     *
+     * @see defaultUserForeignKey()
+     */
+    public $userTablePrimrayKey = 'id';
 
     /**
      * @var \yii\db\ColumnSchemaBuilder[]
@@ -47,7 +57,7 @@ abstract class CreatePivot extends CreateTable
             $this->defaultColumns[$this->createdByColumn]
                 = $this->createdByDefinition();
             $this->defaultForeignKeys[$this->createdByColumn]
-                = $this->userTable;
+                = $this->createdByForeignKey($this->createdByColumn);
         }
         if (isset($this->createdAtColumn)) {
             $this->defaultColumns[$this->createdAtColumn]
@@ -87,5 +97,31 @@ abstract class CreatePivot extends CreateTable
     protected function createdAtDefinition()
     {
         return $this->datetime()->notNull();
+    }
+
+    /**
+     * Default definition for the foreign keys in user columns.
+     *
+     * @return array
+     * @see $userTable
+     * @see $userTablePrimaryKey
+     */
+    protected function defaultUserForeignKey($columnName)
+    {
+        return [
+            'table' => $this->userTable,
+            'columns' => [$columnName => $this->userTablePrimaryKey],
+        ];
+    }
+
+    /**
+     * Foreign key definition for the `created_by` column.
+     *
+     * @return array
+     * @see defaultUserForeignKey()
+     */
+    protected function createdByForeignKey($columnName)
+    {
+        return $this->defaultUserForeignKey($columnName);
     }
 }
