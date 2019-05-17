@@ -30,7 +30,7 @@ abstract class CreateEntity extends CreatePivot
             $this->defaultColumns[$this->updatedByColumn]
                 = $this->updatedByDefinition();
             $this->defaultForeignKeys[$this->updatedByColumn]
-                = $this->updeatedByForeignKey($this->createdByColumn);
+                = $this->updatedByForeignKey($this->createdByColumn);
         }
         if (isset($this->updatedAtColumn)) {
             $this->defaultColumns[$this->updatedAtColumn]
