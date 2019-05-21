@@ -30,7 +30,7 @@ abstract class CreateEntity extends CreatePivot
             $this->defaultColumns[$this->updatedByColumn]
                 = $this->updatedByDefinition();
             $this->defaultForeignKeys[$this->updatedByColumn]
-                = $this->userTable;
+                = $this->updatedByForeignKey($this->createdByColumn);
         }
         if (isset($this->updatedAtColumn)) {
             $this->defaultColumns[$this->updatedAtColumn]
@@ -54,5 +54,16 @@ abstract class CreateEntity extends CreatePivot
     protected function updatedAtDefinition()
     {
         return $this->datetime()->notNull();
+    }
+
+    /**
+     * Foreign key definition for the `updated_by` column.
+     *
+     * @return array
+     * @see defaultUserForeignKey()
+     */
+    protected function updatedByForeignKey($columnName)
+    {
+        return $this->defaultUserForeignKey($columnName);
     }
 }

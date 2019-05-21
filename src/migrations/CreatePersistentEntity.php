@@ -33,7 +33,7 @@ abstract class CreatePersistentEntity extends CreateEntity
             $this->defaultColumns[$this->deletedByColumn]
                 = $this->deletedByDefinition();
             $this->defaultForeignKeys[$this->deletedByColumn]
-                = $this->userTable;
+                = $this->deletedByForeignKey($this->createdByColumn);
         }
         if (isset($this->deletedAtColumn)) {
             $this->defaultColumns[$this->deletedAtColumn]
@@ -57,5 +57,16 @@ abstract class CreatePersistentEntity extends CreateEntity
     protected function deletedAtDefinition()
     {
         return $this->datetime()->defaultValue(null);
+    }
+
+    /**
+     * Foreign key definition for the `deleted_by` column.
+     *
+     * @return array
+     * @se defaultUserForeignKey()
+     */
+    protected function deletedByForeignKey($columnName)
+    {
+        return $this->defaultUserForeignKey($columnName);
     }
 }
