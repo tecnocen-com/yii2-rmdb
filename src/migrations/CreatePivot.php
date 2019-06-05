@@ -35,7 +35,7 @@ abstract class CreatePivot extends CreateTable
      *
      * @see defaultUserForeignKey()
      */
-    public $userTablePrimrayKey = 'id';
+    public $userTablePrimaryKey = 'id';
 
     /**
      * @var \yii\db\ColumnSchemaBuilder[]
